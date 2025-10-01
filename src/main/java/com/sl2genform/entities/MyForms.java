@@ -83,4 +83,9 @@ public class MyForms {
     @Column(name = "date3")
     private String date3;
 
+    @ManyToOne
+    @JoinColumn(name ="user_id")
+    @ToString.Exclude
+    private User user;
+
 }

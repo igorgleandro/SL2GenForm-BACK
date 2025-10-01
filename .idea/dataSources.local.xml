@@ -18,8 +18,8 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="sl2genformback@localhost" uuid="c7d05999-8b42-433b-bfa0-be1b41066513">
-      <database-info product="MySQL" version="9.4.0" jdbc-version="4.2" driver-name="Amazon Web Services (AWS) Advanced JDBC Wrapper" driver-version="Amazon Web Services (AWS) Advanced JDBC Wrapper 2.3.7 ( Revision: 7591851e8da4e1c705ba232a8bd07824a5cfd276 )" dbms="MYSQL" exact-version="9.4.0" exact-driver-version="2.3">
+    <data-source name="sl2genformback@localhost" uuid="b7bf35b2-692a-42ef-8fc5-e0640fc530ba">
+      <database-info product="MySQL" version="9.4.0" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" dbms="MYSQL" exact-version="9.4.0" exact-driver-version="8.2">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
