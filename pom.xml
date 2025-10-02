@@ -76,7 +76,7 @@
         <plugin>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-maven-plugin</artifactId>
-            <version>10.15.0</version>
+            <version>11.10.2</version>
             <configuration>
                 <url>jdbc:mysql://localhost:3306/sl2genformback?createDatabaseIfNotExist=true</url>
                 <user>root</user>

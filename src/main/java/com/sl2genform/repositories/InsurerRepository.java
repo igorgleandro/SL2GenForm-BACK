@@ -1,4 +1,7 @@
 package com.sl2genform.repositories;
 
-public interface InsurerRepository {
+import com.sl2genform.entities.Insurer;
+import org.springframework.data.repository.CrudRepository;
+
+public interface InsurerRepository extends CrudRepository<Insurer, Integer> {
 }

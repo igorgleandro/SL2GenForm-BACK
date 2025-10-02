@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
-
 @Getter
 @Setter
 @Entity
@@ -14,20 +13,19 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @ToString
-@Table(name = "insurers")
-public class Insurer {
+@Table(name = "CovCodes")
+public class CovCode {
+
 
     @Id
-    @Column(name = "id", length = 50)
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "insurer", nullable = false)
-    private String insurer;
+    @Column(name = "code")
+    private String code;
 
-    @Column(name = "naic")
-    private String naic;
-
-    @Column(name = "website", length = 500)
-    private String website;
+    @Column(name = "name")
+    private String name;
 
 }
+
