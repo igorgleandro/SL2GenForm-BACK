@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Map;
@@ -61,23 +62,22 @@ public class MyFormsController {
 
     @PostMapping("/myforms")
     public ResponseEntity<?> createMyForm(@RequestBody MyFormsDTO myFormsDTO) {
-        // Validate that userId is provided
-        if (myFormsDTO.getUserId() == null) {
+        // Validate userId
+        if (myFormsDTO.getUser_id() == null) {
             return ResponseEntity.badRequest()
-                    .body("User ID is required");
+                    .body(Map.of("error", "User ID is required"));
         }
 
-        // Convert DTO to entity
+        // Fetch user
+        User user = userService.findById(myFormsDTO.getUser_id().intValue())
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.BAD_REQUEST,
+                        "User not found with ID: " + myFormsDTO.getUser_id()
+                ));
+
+        // Convert and set user
         MyForms myForm = myFormsMapper.toEntity(myFormsDTO);
-
-        // Fetch and set the user
-        Optional<User> userOpt = userService.findById(myFormsDTO.getUserId().intValue());
-        if (userOpt.isEmpty()) {
-            return ResponseEntity.badRequest()
-                    .body("User not found with ID: " + myFormsDTO.getUserId());
-        }
-
-        myForm.setUser(userOpt.get());
+        myForm.setUser(user);
 
         // Save and return
         MyForms savedForm = myFormsService.save(myForm);

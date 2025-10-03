@@ -928,7 +928,7 @@
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <Current>1</Current>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2025-10-03.09:48:53</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-10-03.15:36:43</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="295" parent="1" name="mysql.infoschema">
@@ -978,7 +978,7 @@
     <column id="304" parent="299" name="id">
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StoredType>bigint|0s</StoredType>
+      <StoredType>int|0s</StoredType>
     </column>
     <column id="305" parent="299" name="code">
       <Position>2</Position>
@@ -1064,7 +1064,7 @@
     <column id="322" parent="301" name="id">
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StoredType>bigint|0s</StoredType>
+      <StoredType>int|0s</StoredType>
     </column>
     <column id="323" parent="301" name="insurer">
       <NotNull>1</NotNull>
@@ -1231,7 +1231,7 @@
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="362" parent="303" name="user_id">
-      <AutoIncrement>2</AutoIncrement>
+      <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>

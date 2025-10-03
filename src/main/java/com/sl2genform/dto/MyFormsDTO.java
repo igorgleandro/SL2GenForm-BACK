@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class MyFormsDTO {
 
     private Integer id;
-    private Long userId;
+    private Long user_id;
 
     private String agentName;
     private String agentNbr;

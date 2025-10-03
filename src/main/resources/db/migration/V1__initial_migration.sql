@@ -1,6 +1,14 @@
+CREATE TABLE cov_codes
+(
+    id   INT NOT NULL,
+    code VARCHAR(255) NULL,
+    name VARCHAR(255) NULL,
+    CONSTRAINT pk_covcodes PRIMARY KEY (id)
+);
+
 CREATE TABLE insurers
 (
-    id      BIGINT       NOT NULL,
+    id      INT          NOT NULL,
     insurer VARCHAR(255) NOT NULL,
     naic    VARCHAR(255) NULL,
     website VARCHAR(500) NULL,

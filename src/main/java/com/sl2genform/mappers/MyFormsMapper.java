@@ -16,7 +16,7 @@ public class MyFormsMapper {
         }
         return MyFormsDTO.builder()
                 .id(myForms.getId())
-                .userId(myForms.getUser() != null ? myForms.getUser().getUser_id() : null)
+                .user_id(myForms.getUser() != null ? myForms.getUser().getUser_id() : null)
 
                 .agentName(myForms.getAgentName())
                 .agentNbr(myForms.getAgentNbr())
@@ -65,7 +65,6 @@ public class MyFormsMapper {
             return null;
         }
         return MyForms.builder()
-                .id(myFormsDTO.getId())
 
                 .agentName(myFormsDTO.getAgentName())
                 .agentNbr(myFormsDTO.getAgentNbr())
