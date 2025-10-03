@@ -21,7 +21,7 @@ public class CovCodeMapper {
 
 
         return  CovCodeDTO.builder()
-                .id(covCode.getId())
+                .id((long) covCode.getId())
                 .code (covCode.getCode ())
                 .name(covCode.getName())
                 .build();

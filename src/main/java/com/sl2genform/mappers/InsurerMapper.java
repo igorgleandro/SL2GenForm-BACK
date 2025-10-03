@@ -18,10 +18,10 @@ public class InsurerMapper {
 
 
             return  InsurerDTO.builder()
-                    .id(insurer.getId())
+                    .id((long) insurer.getId())
                     .insurer (insurer.getInsurer ())
                     .naic (insurer.getNaic())
-
+                    .website(insurer.getWebsite())
                     .build();
 
         }

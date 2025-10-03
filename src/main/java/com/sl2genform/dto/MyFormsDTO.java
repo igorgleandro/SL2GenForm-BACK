@@ -12,6 +12,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class MyFormsDTO {
 
+    private Integer id;
+    private Long userId;
+
     private String agentName;
     private String agentNbr;
     private String agencyName;

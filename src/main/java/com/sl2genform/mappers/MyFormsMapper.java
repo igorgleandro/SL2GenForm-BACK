@@ -11,10 +11,13 @@ import java.util.stream.Collectors;
 public class MyFormsMapper {
 
     public MyFormsDTO toDTO(MyForms myForms){
-        if ( myForms == null){
+        if (myForms == null){
             return null;
         }
         return MyFormsDTO.builder()
+                .id(myForms.getId())
+                .userId(myForms.getUser() != null ? myForms.getUser().getUser_id() : null)
+
                 .agentName(myForms.getAgentName())
                 .agentNbr(myForms.getAgentNbr())
                 .agencyName(myForms.getAgencyName())
@@ -51,10 +54,53 @@ public class MyFormsMapper {
                 .build();
     }
 
-    public List<MyFormsDTO> toDTOList(List<MyForms> users) {
-        return users.stream()
+    public List<MyFormsDTO> toDTOList(List<MyForms> myForms) {
+        return myForms.stream()
                 .map(this::toDTO)
                 .collect(Collectors.toList());
     }
 
+    public MyForms toEntity(MyFormsDTO myFormsDTO) {
+        if (myFormsDTO == null) {
+            return null;
+        }
+        return MyForms.builder()
+                .id(myFormsDTO.getId())
+
+                .agentName(myFormsDTO.getAgentName())
+                .agentNbr(myFormsDTO.getAgentNbr())
+                .agencyName(myFormsDTO.getAgencyName())
+                .agencyNbr(myFormsDTO.getAgencyNbr())
+
+                .nameInsured(myFormsDTO.getNameInsured())
+                .descriptionRisk(myFormsDTO.getDescriptionRisk())
+                .coverageCode(myFormsDTO.getCoverageCode())
+
+                .insurer1(myFormsDTO.getInsurer1())
+                .contactedThrough1(myFormsDTO.getContactedThrough1())
+                .fullContactName1(myFormsDTO.getFullContactName1())
+                .emailPhone1(myFormsDTO.getEmailPhone1())
+                .website1(myFormsDTO.getWebsite1())
+                .naic1(myFormsDTO.getNaic1())
+                .date1(myFormsDTO.getDate1())
+
+                .insurer2(myFormsDTO.getInsurer2())
+                .contactedThrough2(myFormsDTO.getContactedThrough2())
+                .fullContactName2(myFormsDTO.getFullContactName2())
+                .emailPhone2(myFormsDTO.getEmailPhone2())
+                .website2(myFormsDTO.getWebsite2())
+                .naic2(myFormsDTO.getNaic2())
+                .date2(myFormsDTO.getDate2())
+
+                .insurer3(myFormsDTO.getInsurer3())
+                .contactedThrough3(myFormsDTO.getContactedThrough3())
+                .fullContactName3(myFormsDTO.getFullContactName3())
+                .emailPhone3(myFormsDTO.getEmailPhone3())
+                .website3(myFormsDTO.getWebsite3())
+                .naic3(myFormsDTO.getNaic3())
+                .date3(myFormsDTO.getDate3())
+
+                // Note: user is not set here - it should be set in the controller/service
+                .build();
+    }
 }

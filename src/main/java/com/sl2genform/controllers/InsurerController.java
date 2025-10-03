@@ -14,7 +14,6 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
 public class InsurerController {
 
     private final InsurerService insurerService;

@@ -19,7 +19,7 @@ public class CovCode {
 
     @Id
     @Column(name = "id")
-    private Long id;
+    private int id;
 
     @Column(name = "code")
     private String code;

@@ -19,7 +19,7 @@ public class Insurer {
 
     @Id
     @Column(name = "id", length = 50)
-    private Long id;
+    private int id;
 
     @Column(name = "insurer", nullable = false)
     private String insurer;

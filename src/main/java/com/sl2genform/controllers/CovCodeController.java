@@ -15,7 +15,6 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
 public class CovCodeController {
     private final CovCodeService covCodeService;
     private final CovCodeMapper covCodeMapper;

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DiffGenerationConfig">
     <option name="snapshotDbValue" value="b7bf35b2-692a-42ef-8fc5-e0640fc530ba" />
-    <option name="sourceModelValue" value="SL2GenForm-BACK:SL2GenForm-BACK" />
+    <option name="sourceModelValue" value="SL2GenForm-BACK:entityManagerFactory" />
     <option name="targetDbValue" value="b7bf35b2-692a-42ef-8fc5-e0640fc530ba" />
   </component>
 </project>
