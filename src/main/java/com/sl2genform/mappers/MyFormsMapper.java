@@ -99,7 +99,6 @@ public class MyFormsMapper {
                 .naic3(myFormsDTO.getNaic3())
                 .date3(myFormsDTO.getDate3())
 
-                // Note: user is not set here - it should be set in the controller/service
                 .build();
     }
 }

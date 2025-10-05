@@ -40,7 +40,7 @@ public class MyFormsService {
     }
 
     public List<MyForms> findByUserId(Long userId) {
-        return myFormsRepository.findByUserUserId(userId);
+        return myFormsRepository.findByUser_UserId(userId);
     }
 
     public Optional<MyForms> updates(int id, Map<String,Object> updates){
@@ -85,4 +85,6 @@ public class MyFormsService {
                     return myFormsRepository.save(myForms);
                 });
     }
+
+
 }

@@ -1,6 +1,8 @@
 package com.sl2genform.mappers;
 
+import com.sl2genform.dto.MyFormsDTO;
 import com.sl2genform.dto.UserDTO;
+import com.sl2genform.entities.MyForms;
 import com.sl2genform.entities.User;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +24,7 @@ public class UserMapper {
                 .surname(user.getSurname())
                 .email(user.getEmail())
                 .password(user.getPassword())
+                .role(user.getRole())
                 .build();
 
     }
@@ -31,4 +34,19 @@ public class UserMapper {
                 .map(this::toDTO)
                 .collect(Collectors.toList());
     }
+
+    public User toEntity(UserDTO userDTO) {
+        if (userDTO == null) {
+            return null;
+        }
+        return User.builder()
+                .user_id(userDTO.getUser_id())
+                .name(userDTO.getName())
+                .surname(userDTO.getSurname())
+                .email(userDTO.getEmail())
+                .password(userDTO.getPassword())
+                .role(userDTO.getRole())
+                .build();
+    }
+
 }

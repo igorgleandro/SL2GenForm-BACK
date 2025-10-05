@@ -14,5 +14,6 @@ public interface MyFormsRepository extends CrudRepository<MyForms, Integer> {
     Optional<MyForms> getByNameInsured(@Param("nameInsured") String nameInsured);
 
     @Query("SELECT m FROM MyForms m WHERE m.user.user_id = :userId")
-    List<MyForms> findByUserUserId(@Param("userId") Long userId);
+    List<MyForms> findByUser_UserId(@Param("userId") Long userId);
+
 }
