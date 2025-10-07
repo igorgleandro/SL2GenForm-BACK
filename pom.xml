@@ -89,6 +89,23 @@
                 <password>root5710</password>
             </configuration>
         </plugin>
+
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>3.2.0</version> <!-- Use your Spring Boot version -->
+            <configuration>
+                <mainClass>com.sl2genform.Main</mainClass>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
     </plugins>
 </build>
 
