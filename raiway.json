@@ -1,0 +1,10 @@
+{
+  "build": {
+    "builder": "nixpacks"
+  },
+  "deploy": {
+    "startCommand": "java -jar target/SL2GenForm-Back-1.0-SNAPSHOT.jar",
+    "restartPolicyType": "on-failure",
+    "restartPolicyMaxRetries": 10
+  }
+}
