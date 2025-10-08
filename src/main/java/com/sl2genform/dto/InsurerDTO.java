@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class InsurerDTO {
-        private Long id;
+        private String id;
         private String name;
         private String insurer;
         private String naic;

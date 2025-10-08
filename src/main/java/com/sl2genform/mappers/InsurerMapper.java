@@ -18,7 +18,7 @@ public class InsurerMapper {
 
 
             return  InsurerDTO.builder()
-                    .id((long) insurer.getId())
+                    .id(insurer.getId())
                     .insurer (insurer.getInsurer ())
                     .naic (insurer.getNaic())
                     .website(insurer.getWebsite())

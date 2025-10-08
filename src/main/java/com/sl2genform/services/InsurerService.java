@@ -22,11 +22,11 @@ public class InsurerService {
         return insurer;
     }
 
-    public Optional<Insurer> findById(Integer id){
+    public Optional<Insurer> findById(String id){
         return insurerRepository.findById(id);
     }
 
-    public void deleteById(Integer id){
+    public void deleteById(String id){
         insurerRepository.deleteById(id);
     }
 

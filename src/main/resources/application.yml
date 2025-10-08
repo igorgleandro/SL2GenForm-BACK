@@ -4,5 +4,12 @@ spring:
     username: root
     password: root5710
 
+jpa:
+  show-sql: true
+
 server:
   port: 8080
+
+jwt:
+  secret: mySecretKeyForJwtTokenGenerationAndValidationMustBeLongEnough123456
+  expiration: 86400000

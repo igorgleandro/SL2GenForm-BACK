@@ -2,9 +2,7 @@ package com.sl2genform.mappers;
 
 
 import com.sl2genform.dto.CovCodeDTO;
-import com.sl2genform.dto.InsurerDTO;
 import com.sl2genform.entities.CovCode;
-import com.sl2genform.entities.Insurer;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
