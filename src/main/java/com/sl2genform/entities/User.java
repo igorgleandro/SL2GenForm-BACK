@@ -35,6 +35,9 @@ public class User {
     @Column(name = "avatar")
     private String avatar;
 
+    @Column(name = "theme")
+    private String theme;
+
 
 
 }

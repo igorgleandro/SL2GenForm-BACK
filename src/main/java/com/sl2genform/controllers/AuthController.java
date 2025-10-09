@@ -54,9 +54,12 @@ public class AuthController {
                     .token(jwt)
                     .type("Bearer")  // Token type - tells client to use "Bearer" in Authorization header
                     .email(userDetails.getUsername())
-                    .name(fullName)
+                    .name(userDetailsImpl.getUser().getName())
+                    .surname(userDetailsImpl.getUser().getSurname())
                     .user_id(userDetailsImpl.getUser().getUser_id())
                     .role(userDetailsImpl.getRole())
+                    .avatar(userDetailsImpl.getUser().getAvatar())
+                    .theme(userDetailsImpl.getUser().getTheme())
                     .build();
 
             return ResponseEntity.ok(response);

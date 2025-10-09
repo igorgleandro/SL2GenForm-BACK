@@ -39,6 +39,12 @@ public class UserDetailsImpl implements UserDetails {
 
     public String getAvatar() {
         return user.getAvatar();
+
+    }
+
+    public String getTheme() {
+        return user.getTheme();
+
     }
 
 

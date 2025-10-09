@@ -16,4 +16,6 @@ public class UserDTO {
     private String surname;
     private String password;
     private String role;
+    private String theme;
+    private String avatar;
 }

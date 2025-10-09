@@ -25,6 +25,8 @@ public class UserMapper {
                 .email(user.getEmail())
                 .password(user.getPassword())
                 .role(user.getRole())
+                .theme(user.getTheme())
+                .avatar(user.getAvatar())
                 .build();
 
     }
@@ -46,6 +48,8 @@ public class UserMapper {
                 .email(userDTO.getEmail())
                 .password(userDTO.getPassword())
                 .role(userDTO.getRole())
+                .theme(userDTO.getTheme())
+                .avatar(userDTO.getAvatar())
                 .build();
     }
 

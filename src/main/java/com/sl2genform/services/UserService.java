@@ -26,6 +26,14 @@ public class UserService implements UserDetailsService  {
         return user;
     }
 
+    public User update(User user){
+        System.out.println("Updating user....");
+        User updatedUser = userRepository.save(user);
+        System.out.println("...Updated");
+
+        return updatedUser;
+    }
+
     public Optional<User> findById(Integer id){
         return userRepository.findById(id);
     }

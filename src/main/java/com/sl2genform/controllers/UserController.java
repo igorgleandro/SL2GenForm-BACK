@@ -41,5 +41,30 @@ public class UserController {
 
 
     }
+    @CrossOrigin("http://localhost:5173")
+    @PatchMapping("/users/{id}")
+    public ResponseEntity<UserDTO> updateUser(
+            @PathVariable Long id,
+            @RequestBody UserDTO userDTO) {
+
+        if (userService.findById(Math.toIntExact(id)).isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        // Encode password only if it's being updated
+        if (userDTO.getPassword() != null && !userDTO.getPassword().isBlank()) {
+            userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        }
+
+        // Map DTO to entity
+        User userToUpdate = userMapper.toEntity(userDTO);
+        userToUpdate.setUser_id(id); // ✅ Ensure we update the correct existing record
+
+        // Call service update logic
+        User updatedUser = userService.update(userToUpdate);
+
+        // Return updated DTO
+        return ResponseEntity.ok(userMapper.toDTO(updatedUser));
+    }
 
 }
