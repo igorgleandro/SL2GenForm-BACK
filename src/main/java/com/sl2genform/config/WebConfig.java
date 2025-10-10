@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")  // Remove the second parameter
-                .allowedOrigins("http://localhost:3000", "http://localhost:5173")
+                .allowedOrigins("http://localhost:3000", "http://localhost:5173", "https://sl2genform-back-production.up.railway.app:8080")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);  // Add this if you're sending cookies/auth headers
