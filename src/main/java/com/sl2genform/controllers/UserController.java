@@ -1,7 +1,7 @@
 package com.sl2genform.controllers;
 
 import com.sl2genform.dto.UserDTO;
-import com.sl2genform.entities.MyForms;
+
 import com.sl2genform.entities.User;
 import com.sl2genform.mappers.UserMapper;
 import com.sl2genform.services.UserService;
@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @RestController
@@ -47,23 +48,46 @@ public class UserController {
             @PathVariable Long id,
             @RequestBody UserDTO userDTO) {
 
-        if (userService.findById(Math.toIntExact(id)).isEmpty()) {
+
+        Optional<User> existingUserOpt = userService.findById(Math.toIntExact(id));
+        if (existingUserOpt.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 
-        // Encode password only if it's being updated
-        if (userDTO.getPassword() != null && !userDTO.getPassword().isBlank()) {
-            userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        User existingUser = existingUserOpt.get();
+
+        if (userDTO.getName() != null) {
+            existingUser.setName(userDTO.getName());
         }
 
-        // Map DTO to entity
-        User userToUpdate = userMapper.toEntity(userDTO);
-        userToUpdate.setUser_id(id); // ✅ Ensure we update the correct existing record
+        if (userDTO.getSurname() != null) {
+            existingUser.setSurname(userDTO.getSurname());
+        }
 
-        // Call service update logic
-        User updatedUser = userService.update(userToUpdate);
+        if (userDTO.getEmail() != null) {
+            existingUser.setEmail(userDTO.getEmail());
+        }
 
-        // Return updated DTO
+        if (userDTO.getRole() != null) {
+            existingUser.setRole(userDTO.getRole());
+        }
+
+        if (userDTO.getTheme() != null) {
+            existingUser.setTheme(userDTO.getTheme());
+        }
+
+        if (userDTO.getAvatar() != null) {
+            existingUser.setAvatar(userDTO.getAvatar());
+        }
+
+        // Only update password if it's provided and not blank
+        if (userDTO.getPassword() != null && !userDTO.getPassword().isBlank()) {
+            existingUser.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        }
+
+
+        User updatedUser = userService.update(existingUser);
+
         return ResponseEntity.ok(userMapper.toDTO(updatedUser));
     }
 
