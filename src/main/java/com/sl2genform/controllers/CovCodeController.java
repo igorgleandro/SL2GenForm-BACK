@@ -15,6 +15,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
+@CrossOrigin(origins = {"http://localhost:5173", "https://sl2genform-app-production.up.railway.app"})
 public class CovCodeController {
     private final CovCodeService covCodeService;
     private final CovCodeMapper covCodeMapper;
