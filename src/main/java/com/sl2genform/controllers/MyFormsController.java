@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173", "sl2genform-app-production.up.railway.app:8080"})
+@CrossOrigin(origins = {"http://localhost:5173", "sl2genform-app-production.up.railway.app"})
 public class MyFormsController {
 
     private final MyFormsService myFormsService;

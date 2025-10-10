@@ -25,7 +25,7 @@ public class UserController {
 
 
     @Tag(name = "getBooks", description = "retrieve all the user from the db")
-    @CrossOrigin(origins = {"http://localhost:5173", "sl2genform-app-production.up.railway.app:8080"})
+    @CrossOrigin(origins = {"http://localhost:5173", "sl2genform-app-production.up.railway.app"})
     @GetMapping("/users")
     public List<UserDTO> getUsers() {
         return userMapper.toDTOList((List<User>) userService.findAll());
@@ -42,7 +42,7 @@ public class UserController {
 
 
     }
-    @CrossOrigin(origins = {"http://localhost:5173", "sl2genform-app-production.up.railway.app:8080"})
+    @CrossOrigin(origins = {"http://localhost:5173", "sl2genform-app-production.up.railway.app"})
     @PatchMapping("/users/{id}")
     public ResponseEntity<UserDTO> updateUser(
             @PathVariable Long id,
