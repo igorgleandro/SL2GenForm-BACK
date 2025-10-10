@@ -116,9 +116,9 @@
             <artifactId>flyway-maven-plugin</artifactId>
             <version>11.10.2</version>
             <configuration>
-                <url>jdbc:mysql://localhost:3306/sl2genformback?createDatabaseIfNotExist=true</url>
+                <url>jdbc:mysql://root:ojuoTtaIeSxXQPPgzRjAcVweRvaQvYxO@caboose.proxy.rlwy.net:21463/railway</url>
                 <user>root</user>
-                <password>root5710</password>
+                <password>ojuoTtaIeSxXQPPgzRjAcVweRvaQvYxO</password>
             </configuration>
         </plugin>
 
