@@ -92,4 +92,18 @@ public class UserController {
         return ResponseEntity.ok(userMapper.toDTO(updatedUser));
     }
 
+    @CrossOrigin(origins = {"http://localhost:5173", "https://sl2genform-app-production.up.railway.app"})
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        Optional<User> existingUser = userService.findById(Math.toIntExact(id));
+
+        if (existingUser.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        userService.deleteById(Math.toIntExact(id));
+        return ResponseEntity.noContent().build();
+    }
+
+
 }
