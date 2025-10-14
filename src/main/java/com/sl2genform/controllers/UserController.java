@@ -104,6 +104,4 @@ public class UserController {
         userService.deleteById(Math.toIntExact(id));
         return ResponseEntity.noContent().build();
     }
-
-
 }

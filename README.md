@@ -108,7 +108,7 @@ Authorization: Bearer <your-token-here>
 - `GET /users` - Get all users (authenticated)
 - `POST /users` - Register new user (public)
 - `PATCH /users/{id}` - Update user (authenticated)
-- `/users/{id}` - Delete user (authenticated)
+- `DELETE /users/{id}` - Delete user (authenticated)
 
 ### Forms
 - `GET /myforms` - Get all forms (authenticated)
@@ -200,11 +200,5 @@ The application allows CORS requests from:
 ## 📝 License
 
 This project is private and proprietary.
-
-## 👥 Contact
-
-For questions or support, please contact the development team.
-
----
 
 Built with ☕ and Spring Boot
