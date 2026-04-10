@@ -23,7 +23,7 @@ public class UserMapper {
                 .name(user.getName())
                 .surname(user.getSurname())
                 .email(user.getEmail())
-                .password(user.getPassword())
+                //.password(user.getPassword())
                 .role(user.getRole())
                 .theme(user.getTheme())
                 .avatar(user.getAvatar())

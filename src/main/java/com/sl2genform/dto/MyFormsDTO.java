@@ -1,6 +1,6 @@
 package com.sl2genform.dto;
 
-import jakarta.persistence.Column;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,11 +15,13 @@ public class MyFormsDTO {
     private Integer id;
     private Long user_id;
 
+    @NotBlank(message = "Agent name is required")
     private String agentName;
     private String agentNbr;
     private String agencyName;
     private String agencyNbr;
 
+    @NotBlank(message = "Insured name is required")
     private String nameInsured;
     private String descriptionRisk;
     private String coverageCode;

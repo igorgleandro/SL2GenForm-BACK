@@ -1,9 +1,6 @@
 package com.sl2genform.controllers;
 
 import com.sl2genform.dto.MyFormsDTO;
-
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 import com.sl2genform.entities.MyForms;
 import com.sl2genform.entities.User;
 import com.sl2genform.mappers.MyFormsMapper;
@@ -13,7 +10,11 @@ import com.sl2genform.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import jakarta.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -85,7 +86,7 @@ public class MyFormsController {
     }
 
     @PostMapping("/myforms")
-    public ResponseEntity<?> createMyForm(@RequestBody MyFormsDTO myFormsDTO, @AuthenticationPrincipal UserDetailsImpl currentUser) {
+    public ResponseEntity<?> createMyForm(@Valid @RequestBody MyFormsDTO myFormsDTO, @AuthenticationPrincipal UserDetailsImpl currentUser) {
         // Always use the authenticated user's ID — ignore any user_id in the request body
         User user = userService.findById(currentUser.getId().intValue())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "User not found"));
