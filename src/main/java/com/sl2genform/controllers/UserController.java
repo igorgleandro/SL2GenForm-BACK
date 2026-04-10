@@ -4,11 +4,13 @@ import com.sl2genform.dto.UserDTO;
 
 import com.sl2genform.entities.User;
 import com.sl2genform.mappers.UserMapper;
+import com.sl2genform.security.UserDetailsImpl;
 import com.sl2genform.services.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,8 +49,12 @@ public class UserController {
     @PatchMapping("/users/{id}")
     public ResponseEntity<UserDTO> updateUser(
             @PathVariable Long id,
-            @RequestBody UserDTO userDTO) {
+            @RequestBody UserDTO userDTO,
+            @AuthenticationPrincipal UserDetailsImpl currentUser) {
 
+        if (!currentUser.getId().equals(id)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
 
         Optional<User> existingUserOpt = userService.findById(Math.toIntExact(id));
         if (existingUserOpt.isEmpty()) {
@@ -94,7 +100,11 @@ public class UserController {
 
     @CrossOrigin(origins = {"http://localhost:5173", "https://sl2genform-app-production.up.railway.app"})
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id, @AuthenticationPrincipal UserDetailsImpl currentUser) {
+        if (!currentUser.getId().equals(id)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
         Optional<User> existingUser = userService.findById(Math.toIntExact(id));
 
         if (existingUser.isEmpty()) {
